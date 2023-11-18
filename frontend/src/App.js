@@ -1,6 +1,7 @@
 // Импортируем необходимые библиотеки
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './App.css';
 
 // Создаем компонент User, который отображает информацию об одном пользователе
 const User = ({ user }) => {
@@ -54,13 +55,18 @@ const App = () => {
   // Возвращаем JSX-элемент, который содержит список пользователей
   return (
     <div className="users">
+
+      <div class="header-rect"></div>
+
+
       <h1 className="users-title">Пользователи</h1>
-      <div className="users-list">
+      <div className="users-list"> 
         {users.map(user => (
           // Добавляем атрибут key, используя id или имя пользователя
           <User key={user.id} user={user} />
           // <User key={user.name} user={user} />
         ))}
+
       </div>
     </div>
   );
