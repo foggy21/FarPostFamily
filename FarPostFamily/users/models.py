@@ -34,6 +34,7 @@ class User(models.Model):
     
     username = models.CharField(max_length=50)
     password = models.CharField(max_length=50)
+    image = models.ImageField(upload_to='user_images', blank=True, null=False,verbose_name="Фотография")
     name = models.CharField(max_length=255)
     age = models.IntegerField(validators=[
         MaxValueValidator(75),
