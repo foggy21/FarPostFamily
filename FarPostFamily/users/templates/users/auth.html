@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" code="width=device-width, initial-scale=1.0">
+        {%load static%}
+        <link rel="stylesheet" href="{% static 'auth.css' %}">
+        <title>Авторизация</title>
+    </head>
+    <body>
+        <div class="header-rectangle">
+            <img src="{% static 'Logo.png'%}">
+        </div>
+        <div class="subheader-text">
+            FarPostFamily 🞄 Авторизация
+        </div>
+        <div class="main-box">
+            <div class="maskot">
+                <img src="{%static 'Fox.png'%}">
+            </div>
+            <form method="post" action=".">
+                {% csrf_token %}
+                
+                
+                <div class="field-box">
+                    <p class="hello-text">Привет!</p>
+                    <br>
+                    {{form.username}}
+              
+                    <br>
+                    {{form.password}}
+                
+        
+                    {%if form.erros or form.non_field_errors%}
+                        <div class="">
+                            {% for field in form %}
+                                {{field.erros}}
+                            {% endfor %}
+                            {{form.non_field_errors}}
+                        </div>
+                    {% endif %}
+                    <button class="button-login">Войти</button>
+                </div>
+            </form>
+        </div>
+    </body>
+    <footer>
+        <div class="bottom-box">
+            <img src="{%static 'Logo.png'%}">
+            <div class="layout-terms">
+                <div class="about">©2023 FarPostFamily</div>
+                
+                <div class="pages">
+                    <div>Главная</div>
+                    <div>Личный кабинет</div>
+                    <div>Уведомления</div>
+                    <div>Настройки</div>
+                </div>
+            </div>
+        </div>
+        
+    </footer>
+</html>

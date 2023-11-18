@@ -1,8 +1,13 @@
+import base64
+import json
+import os
+from urllib import request
 from django.db import models
 
 # Create your models here.
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.contrib.auth.models import User as Person
 
 # Create your models here.
 class Interest(models.Model):
@@ -31,10 +36,8 @@ class User(models.Model):
             ('M', 'Мужчина'),
             ('F', 'Женщина'),
         )
-    
-    username = models.CharField(max_length=50)
-    password = models.CharField(max_length=50)
-    image = models.ImageField(upload_to='user_images', blank=True, null=False,verbose_name="Фотография")
+    username = models.ForeignKey(Person, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='user_images', blank=True, null=False, verbose_name="Фотография")
     name = models.CharField(max_length=255)
     age = models.IntegerField(validators=[
         MaxValueValidator(75),
