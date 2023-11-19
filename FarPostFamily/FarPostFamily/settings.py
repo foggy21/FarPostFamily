@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-LOGIN_REDIRECT_URL = '/users/catalog'
+LOGIN_REDIRECT_URL = '/users/profile'
 
 # Application definition
 
