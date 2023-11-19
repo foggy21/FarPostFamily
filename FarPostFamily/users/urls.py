@@ -7,5 +7,6 @@ from . import views
 
 urlpatterns = [
     path('catalog/', views.catalog, name='users-catalog'),
+    path('profile/', views.profile, name='users-profile'),
     path('auth/', auth_views.LoginView.as_view(template_name='users/auth.html', authentication_form=LoginForm), name="login" )
 ]
